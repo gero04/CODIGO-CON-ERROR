@@ -1,0 +1,29 @@
+#Programa para determinar la primalidad de un numero
+n = int(input('Escriba el numero el cual quiere determinar la primalidad (CON 0 CIERRA EL CICLO): '))
+bprimo = False
+rn = 0
+d = 0
+i = 0
+
+while n != 0:
+    if n == 2:
+        bprimo = True
+        # aca se define si n es 2 y es primo
+    else:
+        if (n % 2) == 0:
+            bprimo = False
+            #si el resto de n//2 es 0, entonces el numero no es primo
+        if n < 0: #calculo de la parte entera de la raiz del numero negativo
+            rn = int((n * (-1)) ** 0.5)
+        else: #calculo de la parte entera de la raiz de n 
+            rn = int(n ** 0.5)
+        for i in range (1, rn): #para los numeros en rango 1 - rn 
+            if (n % i) == 0: #si i es divisor de n, n no es primo
+                bprimo = False
+            else:
+                bprimo = True #si i no es divisor de n, n es primo
+    if bprimo == True or n == 2: #si se encuentra un numero primo o n es 2
+        print('El numero que usted ingreso es primo')
+    else:
+        print('El numero que usted ingreso NO es primo')
+    n = int(input('Escriba el numero el cual quiere determinar la primalidad (CON 0 CIERRA EL CICLO): '))
